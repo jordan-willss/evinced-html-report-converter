@@ -1,0 +1,28 @@
+{
+  "name": "htmlconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "type": "module",
+  "scripts": {
+    "build": "pkg ./transpiled/evinced-report-converter.js --options --out-path=./dist",
+    "transpile": "esbuild ./src/convertToCSV.js --bundle --minify --platform=node --outfile=./transpiled/evinced-report-converter.js",
+    "deploy": "transpile && build"
+  },
+  "author": "Jordan Wills",
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.14.23",
+    "node-gyp": "^8.4.1",
+    "rehype-format": "^4.0.1",
+    "rehype-parse": "^8.0.4",
+    "rehype-stringify": "^9.0.3",
+    "streamifier": "^0.1.1",
+    "unified": "^10.1.1"
+  },
+  "pkg": {
+    "options": [
+      "experimental-modules"
+    ]
+  }
+}
